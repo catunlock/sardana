@@ -39,9 +39,9 @@ from sardana.macroserver.macro import Macro, Type, ViewOption
 
 Left, Right, HCenter = Alignment.Left, Alignment.Right, Alignment.HCenter
 
-#~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
+# ~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
 # List of elements related macros
-#~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
+# ~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
 
 
 class _ls(Macro):
@@ -267,9 +267,9 @@ class lsmeas(_lsobj):
 
     type = Type.MeasurementGroup
 
-    cols = 'Active', 'Name', 'Timer', 'Experim. channels'
-    width = -1,     -1,      -1,                  60
-    align = HCenter,  Right,   Right,                Left
+    cols = 'Active', 'Name', 'Experim. channels'
+    width = -1,       -1,      60
+    align = HCenter,  Right,   Left
 
     validator = TangoAttributeNameValidator()
 
@@ -294,8 +294,7 @@ class lsmeas(_lsobj):
 
             channels.append(name)
 
-        return active, o.name, o.getTimerName(), ', '.join(channels)
-
+        return active, o.name, ', '.join(channels)
 
 class lsmac(_lsobj):
     """Lists existing macros"""
